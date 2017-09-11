@@ -19,6 +19,10 @@ public:
     int next(int position);
     int previous(int position);
     int locate(int element);
+    void delete_(int element);
+    void make_null();
+    void print_list();
+    void purge();
 
 private:
     int last;

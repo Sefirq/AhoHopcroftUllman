@@ -88,3 +88,51 @@ int ArrayList::locate(int element) {
     }
     return iter;
 }
+
+void ArrayList::delete_(int position) {
+    if (position < first()) {
+        throw NEGATIVE_INDEX;
+    }
+    int iter = first();
+    while (iter != END() && iter != position) {
+        iter = next(iter);
+    }
+    if (iter == END()) {
+        throw WRONG_INDEX;
+    }
+    else {
+        while (iter != last) {
+            elements[iter] = elements[next(iter)];
+            iter = next(iter);
+        }
+        last--;
+    }
+}
+
+void ArrayList::make_null() {
+    last = -1;
+}
+
+void ArrayList::print_list() {
+    for (int i = first(); i < END(); i=next(i)) {
+        printf("%d, ", elements[i]);
+    }
+    printf("\n");
+}
+
+void ArrayList::purge() {
+    int p = first();
+    int q;
+    while (p != END()) {
+        q = next(p);
+        while(q != END()) {
+            if (retrieve(p) == retrieve(q)) {
+                delete_(q);
+            }
+            else {
+                q = next(q);
+            }
+        }
+        p = next(p);
+    }
+}

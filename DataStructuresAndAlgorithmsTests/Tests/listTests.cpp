@@ -160,4 +160,73 @@ TEST_F(ArrayListFixture, previous_of_first_index) {
     }
 }
 
+TEST_F(ArrayListFixture, delete_first_item) {
+    list->insert(25, 0);
+    list->insert(20, 1);
+    list->insert(2, 2);
+    list->insert(25, 3);
+    list->delete_(0);
+    ASSERT_EQ(list->retrieve(0), 20);
+    ASSERT_EQ(list->retrieve(1), 2);
+    ASSERT_EQ(list->retrieve(2), 25);
+}
 
+TEST_F(ArrayListFixture, delete_last_item) {
+    list->insert(25, 0);
+    list->insert(20, 1);
+    list->insert(2, 2);
+    list->insert(25, 3);
+    list->delete_(3);
+    ASSERT_EQ(list->retrieve(0), 25);
+    ASSERT_EQ(list->retrieve(1), 20);
+    ASSERT_EQ(list->retrieve(2), 2);
+    ASSERT_EQ(list->END(), 3);
+}
+
+TEST_F(ArrayListFixture, delete_nonexisting_item) {
+    list->insert(25, 0);
+    list->insert(20, 1);
+    list->insert(2, 2);
+    list->insert(25, 3);
+    try {
+        list->delete_(40);
+    }
+    catch (int e) {
+        ASSERT_EQ(e, WRONG_INDEX);
+    }
+}
+
+TEST_F(ArrayListFixture, delete_negative_index) {
+    list->insert(25, 0);
+    list->insert(20, 1);
+    list->insert(2, 2);
+    list->insert(25, 3);
+    try {
+        list->delete_(-20);
+    }
+    catch (int e) {
+        ASSERT_EQ(e, NEGATIVE_INDEX);
+    }
+}
+
+TEST_F(ArrayListFixture, purge_last_index_duplicate) {
+    list->insert(25, 0);
+    list->insert(20, 1);
+    list->insert(2, 2);
+    list->insert(25, 3);
+    list->purge();
+    ASSERT_EQ(list->retrieve(0), 25);
+    ASSERT_EQ(list->retrieve(1), 20);
+    ASSERT_EQ(list->retrieve(2), 2);
+    ASSERT_EQ(list->END(), 3);
+}
+
+TEST_F(ArrayListFixture, purge_index_with_four_same_elements) {
+    list->insert(25, 0);
+    list->insert(25, 1);
+    list->insert(25, 2);
+    list->insert(25, 3);
+    list->purge();
+    ASSERT_EQ(list->retrieve(0), 25);
+    ASSERT_EQ(list->END(), 1);
+}
