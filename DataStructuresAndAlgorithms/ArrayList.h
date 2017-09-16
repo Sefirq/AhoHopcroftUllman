@@ -2,9 +2,9 @@
 // Created by sefir on 03.09.17.
 //
 const int max_elements = 10000;
-const int WRONG_INDEX = 29;
-const int NEGATIVE_INDEX = 28;
-const int TOO_MANY_ITEMS = 27;
+#define WRONG_INDEX 29
+#define NEGATIVE_INDEX 28
+#define TOO_MANY_ITEMS 27
 #ifndef AHOHOPCROFTULLMAN_LIST_H
 #define AHOHOPCROFTULLMAN_LIST_H
 class ArrayList
