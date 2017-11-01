@@ -3,8 +3,9 @@
 //
 
 #include <iostream>
-#include "ArrayList.h"
-#include "LinkedList.h"
+#include <BasicAbstractDataTypes/CursorSpace.h>
+#include "BasicAbstractDataTypes/ArrayList.h"
+#include "BasicAbstractDataTypes/LinkedList.h"
 
 int main() {
     auto * a = new ArrayList();
@@ -19,5 +20,7 @@ int main() {
     b->insert(8);
     std::cout << "XD" << std::endl;
     b->print_list();
+    auto * c = new CursorSpace(10000);
+    c->print_available();
     return 0;
 }

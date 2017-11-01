@@ -14,7 +14,7 @@ ArrayList::ArrayList() {
 }
 
 void ArrayList::insert(int element, int position) {
-    if (END() >= max_elements) {
+    if (END() >= 10000) {
         throw TOO_MANY_ITEMS;
     }
     if (position > END()) {

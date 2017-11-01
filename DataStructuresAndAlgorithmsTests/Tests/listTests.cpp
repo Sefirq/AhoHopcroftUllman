@@ -3,7 +3,7 @@
 //
 
 #include <gtest/gtest.h>
-#include "ArrayList.h"
+#include "BasicAbstractDataTypes/ArrayList.h"
 
 class ArrayListFixture : public ::testing::Test {
 protected:

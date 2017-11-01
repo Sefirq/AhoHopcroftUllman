@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "LinkedList.h"
+#include "BasicAbstractDataTypes/LinkedList.h"
 
 class LinkedListFixture : public ::testing::Test {
 protected:

@@ -1,0 +1,13 @@
+//
+// Created by sefir on 01.11.17.
+//
+#ifndef AHOHOPCROFTULLMAN_CURSORLIST_H
+#define AHOHOPCROFTULLMAN_CURSORLIST_H
+
+
+class CursorList {
+
+};
+
+
+#endif //AHOHOPCROFTULLMAN_CURSORLIST_H

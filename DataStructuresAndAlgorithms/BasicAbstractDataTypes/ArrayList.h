@@ -1,7 +1,6 @@
 //
 // Created by sefir on 03.09.17.
 //
-const int max_elements = 10000;
 #define WRONG_INDEX 29
 #define NEGATIVE_INDEX 28
 #define TOO_MANY_ITEMS 27
@@ -26,6 +25,6 @@ public:
 
 private:
     int last;
-    int elements[max_elements];
+    int elements[10000];
 };
 #endif //AHOHOPCROFTULLMAN_LIST_H
