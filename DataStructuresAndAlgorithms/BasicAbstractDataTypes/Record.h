@@ -10,6 +10,10 @@ class Record {
 public:
     explicit Record(int value);
     Record();
+    void setNext(int next);
+    void setValue(int value);
+    int getNext();
+    int getValue();
 private:
     int value;
     int next;

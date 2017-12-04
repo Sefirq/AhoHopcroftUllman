@@ -12,11 +12,17 @@
 class CursorSpace {
 public:
     explicit CursorSpace(int size);
-    void print_available();
+    void setNext(int position, int next);
+    int getNext(int position);
+    void setAvailable(int position);
+    int getAvailable();
+    void setValue(int position, int value);
+    int getValue(int position);
+
 
 private:
     Record* space;
-    ArrayList *available;
+    int available;
     void initialize(int size);
 };
 

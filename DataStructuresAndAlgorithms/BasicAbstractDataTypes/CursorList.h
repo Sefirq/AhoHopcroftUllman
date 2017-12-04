@@ -5,8 +5,19 @@
 #define AHOHOPCROFTULLMAN_CURSORLIST_H
 
 
-class CursorList {
+#include "CursorSpace.h"
 
+class CursorList {
+public:
+    CursorList(CursorSpace *SPACE, int value);
+    void insert(int value, int position, CursorSpace *SPACE);
+    void _delete(int position);
+    bool move(int from, int to, CursorSpace* SPACE);
+    void move_to_front(int from, CursorSpace *SPACE);
+    void print_list(CursorSpace *SPACE);
+    void print_indices(CursorSpace *SPACE);
+private:
+    int LHead;
 };
 
 
