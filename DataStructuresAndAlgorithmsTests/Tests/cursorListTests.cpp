@@ -33,3 +33,24 @@ TEST_F(CursorListFixture, test_equality_operator_false) {
     list2->insert(559, 0);
     ASSERT_FALSE(*list == *list2);
 }
+
+TEST_F(CursorListFixture, test_equality_operator_false_first_longer) {
+    auto *list2 = new CursorList(5);
+    list->insert(55, 0);
+    list->insert(55, 0);
+    list->insert(55, 0);
+    list->insert(55, 0);
+    list2->insert(559, 0);
+    ASSERT_FALSE(*list == *list2);
+}
+
+TEST_F(CursorListFixture, test_equality_operator_false_second_longer) {
+    auto *list2 = new CursorList(5);
+    list->insert(55, 0);
+    list2->insert(559, 0);
+    list2->insert(550, 0);
+    list2->insert(59, 0);
+    list2->insert(590, 0);
+    list2->insert(102, 0);
+    ASSERT_FALSE(*list == *list2);
+}
