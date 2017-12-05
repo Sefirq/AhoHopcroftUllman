@@ -9,14 +9,16 @@
 
 class CursorList {
 public:
-    CursorList(CursorSpace *SPACE, int value);
-    void insert(int value, int position, CursorSpace *SPACE);
+    explicit CursorList(int value);
+    void insert(int value, int position);
     void _delete(int position);
-    bool move(int from, int to, CursorSpace* SPACE);
-    void move_to_front(int from, CursorSpace *SPACE);
-    void print_list(CursorSpace *SPACE);
-    void print_indices(CursorSpace *SPACE);
+    bool move(int from, int to);
+    void move_to_front(int from);
+    void print_list();
+    void print_indices();
+    bool operator==(const CursorList& other_list);
 private:
+    static CursorSpace *SPACE;
     int LHead;
 };
 

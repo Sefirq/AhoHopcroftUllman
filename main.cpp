@@ -21,18 +21,25 @@ int main() {
     b->insert(8);
     std::cout << "XD" << std::endl;
     b->print_list();
-    auto * c = new CursorSpace(10000);
-    printf("###%d###\n", c->getAvailable());
-    printf("###%d###\n", c->getNext(c->getAvailable()));
-    auto * cl = new CursorList(c, 10);
-    printf("###%d###\n", c->getAvailable());
-    printf("###%d###\n", c->getNext(c->getAvailable()));
-    cl->insert(15, 0, c);
-    cl->insert(12, 0, c);
-    cl->insert(11, 0, c);
-    cl->insert(10, 0, c);
-    cl->insert(19, 0, c);
-    cl->print_indices(c);
-    cl->print_list(c);
+    auto * cl = new CursorList(10);
+    cl->insert(15, 0);
+    cl->insert(12, 0);
+    cl->insert(11, 0);
+    cl->insert(10, 0);
+    cl->insert(19, 0);
+    cl->print_indices();
+    cl->print_list();
+    auto *cl2 = new CursorList(10);
+    cl2->insert(15, 0);
+    cl2->insert(12, 0);
+    cl2->insert(11, 0);
+    cl2->insert(10, 0);
+    cl2->insert(19, 0);
+    bool ass = (cl==cl2);
+    if(*cl == *cl2) {
+        printf("equal");
+    } else {
+        printf("not equal");
+    }
     return 0;
 }
