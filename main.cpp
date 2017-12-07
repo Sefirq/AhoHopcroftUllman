@@ -35,11 +35,36 @@ int main() {
     cl2->insert(11, 0);
     cl2->insert(10, 0);
     cl2->insert(19, 0);
-    bool ass = (cl==cl2);
+    bool ass = true;
     if(*cl == *cl2) {
-        printf("equal");
+        printf("equal\n");
     } else {
-        printf("not equal");
+        printf("not equal\n");
+    }
+    int input;
+    int vlu;
+    while(ass) {
+        std::cin.clear();
+        std::cin >> input;
+        printf("got it %d\n", input);
+        switch(input) {
+            case -2:
+                ass = !ass;
+                break;
+            case -3:
+                cl->print_indices();
+                break;
+            case -4:
+                cl->print_list();
+                break;
+            default:
+                printf("Podaj wartosc do wpisania\n");
+                std::cin.clear();
+                std::cin >> vlu;
+                printf("%d\n", vlu);
+                cl->insert(vlu, input);
+                break;
+        }
     }
     return 0;
 }

@@ -18,12 +18,10 @@ public:
     int getAvailable();
     void setValue(int position, int value);
     int getValue(int position);
-
-
+    void initialize(int size);
 private:
     Record* space;
     int available;
-    void initialize(int size);
 };
 
 

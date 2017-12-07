@@ -12,10 +12,17 @@ bool CursorList::move(int from, int to) {
     // Takes element next to "from" and places it after "to" cell.
     if (!from)
         return false;
-    int next = this->SPACE->getNext(from);
-    this->SPACE->setNext(from, this->SPACE->getNext(SPACE->getNext(from)));
-    this->SPACE->setNext(next, this->SPACE->getNext(to));
-    this->SPACE->setNext(to, next);
+    printf("Moving %d %d\n", from, to);
+    if (from == this->SPACE->getAvailable()) {
+        this->SPACE->setAvailable(this->SPACE->getNext(this->SPACE->getAvailable()));
+        this->SPACE->setNext(from, this->SPACE->getNext(to));
+        this->SPACE->setNext(to, from);
+    } else {
+        int next = this->SPACE->getNext(from);
+        this->SPACE->setNext(from, this->SPACE->getNext(SPACE->getNext(from)));
+        this->SPACE->setNext(next, this->SPACE->getNext(to));
+        this->SPACE->setNext(to, next);
+    }
     return true;
 }
 
@@ -25,7 +32,10 @@ void CursorList::insert(int value, int position) {
         this->move_to_front(availableIndex);
         this->SPACE->setValue(availableIndex, value);
     } else {
-        printf("one");
+        printf("Inserting, available: %d\n", this->SPACE->getAvailable());
+        if (this->move(this->SPACE->getAvailable(), position)) {
+            this->SPACE->setValue(this->SPACE->getNext(position), value);
+        }
     }
 }
 
@@ -37,7 +47,14 @@ void CursorList::move_to_front(int from) {
 }
 
 void CursorList::_delete(int position) {
-
+    if (!position) {
+        int next = this->SPACE->getNext(this->LHead);
+        this->SPACE->setNext(this->SPACE->getAvailable(), this->LHead);
+//        move(this->LHead, this->SPACE->getAvailable());
+        this->LHead = next;
+    } else {
+        move (position, this->SPACE->getAvailable());
+    }
 }
 
 CursorList::CursorList(int value) {
@@ -76,6 +93,7 @@ void CursorList::print_indices() {
 bool CursorList::operator==(const CursorList& other_list) {
     int this_idx = this->LHead;
     int other_idx = other_list.LHead;
+    printf("%d, %d\n", this_idx, other_idx);
     while(this_idx != 0 and other_idx != 0) {
         if (this->SPACE->getValue(this_idx) != this->SPACE->getValue(other_idx)) {
             return false;
@@ -83,6 +101,10 @@ bool CursorList::operator==(const CursorList& other_list) {
         this_idx = this->SPACE->getNext(this_idx);
         other_idx = this->SPACE->getNext(other_idx);
     }
-    return true;
+    return this_idx == other_idx;
+}
+
+void CursorList::initialize_SPACE() {
+    this->SPACE->initialize(10000);
 }
 

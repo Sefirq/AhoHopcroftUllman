@@ -17,6 +17,7 @@ public:
     void print_list();
     void print_indices();
     bool operator==(const CursorList& other_list);
+    void initialize_SPACE();
 private:
     static CursorSpace *SPACE;
     int LHead;
