@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "BasicAbstractDataTypes/CursorList.h"
+#include "BasicAbstractDataTypes/Lists/CursorList.h"
 
 class CursorListFixture : public ::testing::Test {
 protected:

@@ -7,7 +7,7 @@
 
 
 #include "Record.h"
-#include "ArrayList.h"
+#include "BasicAbstractDataTypes/Lists/ArrayList.h"
 
 class CursorSpace {
 public:

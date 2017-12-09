@@ -1,0 +1,14 @@
+//
+// Created by sefir on 08.12.17.
+//
+
+#ifndef AHOHOPCROFTULLMAN_DOUBLERECORD_H
+#define AHOHOPCROFTULLMAN_DOUBLERECORD_H
+
+
+class DoubleRecord {
+
+};
+
+
+#endif //AHOHOPCROFTULLMAN_DOUBLERECORD_H

@@ -3,10 +3,10 @@
 //
 
 #include <iostream>
-#include <BasicAbstractDataTypes/CursorSpace.h>
-#include "BasicAbstractDataTypes/CursorList.h"
-#include "BasicAbstractDataTypes/ArrayList.h"
-#include "BasicAbstractDataTypes/LinkedList.h"
+#include <BasicAbstractDataTypes/Lists/CursorSpace.h>
+#include "BasicAbstractDataTypes/Lists/CursorList.h"
+#include "BasicAbstractDataTypes/Lists/ArrayList.h"
+#include "BasicAbstractDataTypes/Lists/LinkedList.h"
 
 int main() {
     auto * a = new ArrayList();

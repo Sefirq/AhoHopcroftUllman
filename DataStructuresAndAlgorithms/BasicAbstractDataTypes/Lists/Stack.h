@@ -6,7 +6,7 @@
 #define AHOHOPCROFTULLMAN_STACK_H
 
 
-#include "ArrayList.h"
+#include "BasicAbstractDataTypes/Lists/ArrayList.h"
 
 class Stack {
     ArrayList* array = new ArrayList();
