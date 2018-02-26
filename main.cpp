@@ -5,10 +5,12 @@
 #include <iostream>
 #include <BasicAbstractDataTypes/Lists/CursorSpace.h>
 #include "BasicAbstractDataTypes/Lists/CursorList.h"
-#include "BasicAbstractDataTypes/Lists/ArrayList.h"
+#include "BasicAbstractDataTypes/Lists/BidirectionalList.h"
 #include "BasicAbstractDataTypes/Lists/LinkedList.h"
 
 int main() {
+    auto * xd = new BidirectionalList(11);
+    std::cout<< xd->createStringRepresentationOfList()<<std::endl;
     auto * a = new ArrayList();
     a->insert(10, 0);
     a->insert(11, 1);
