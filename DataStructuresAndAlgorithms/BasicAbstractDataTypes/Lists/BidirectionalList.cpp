@@ -72,3 +72,34 @@ std::string BidirectionalList::createStringRepresentationOfList() {
     }
     return toBeReturned;
 }
+
+void BidirectionalList::delete_(int position) {
+    BidirectionalList& recordToBeDeleted = (*this)[position];
+    if (recordToBeDeleted.previous == nullptr) {
+        if (recordToBeDeleted.next == nullptr) {
+            printf("Cannot delete only element from list\n");
+            return;
+        } else {
+            recordToBeDeleted.value = recordToBeDeleted.next->getValue();
+            recordToBeDeleted.next = recordToBeDeleted.next->next;
+        }
+        return;
+    } else {
+        recordToBeDeleted.previous->next = recordToBeDeleted.next;
+        if (recordToBeDeleted.next != nullptr) {
+            recordToBeDeleted.next->previous = recordToBeDeleted.previous;
+            delete &recordToBeDeleted;
+        }
+    }
+    this->updatePositions();
+}
+
+void BidirectionalList::updatePositions() {
+    BidirectionalList* currentRecord = this;
+    while (currentRecord->next != nullptr) {
+        if (currentRecord->next->position != currentRecord->position + 1) {
+            currentRecord->next->position = currentRecord->position + 1;
+        }
+        currentRecord = currentRecord->next;
+    }
+}
